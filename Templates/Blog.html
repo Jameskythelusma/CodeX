@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Blog</title>
+</head>
+
+<body>
+    <div class="header">
+        <h2>CodeX</h2>
+        <p><a href="{% url 'blog' %}">home</a></p>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <h2>Makonen URL ak Views</h2>
+                <h5>Title description, Dec 7, 2017</h5>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam accusantium sapiente, quas, aperiam consequuntur expedita, ipsum ea laboriosam vitae maiores quis. Soluta quisquam, 
+                    magni ipsa nostrum maiores incidunt iure praesentium!<a href="{% url 'atik1' %}">li plis</a> </p>
+            </div>
+
+            <div class="card">
+                <h2>Templates nan Django</h2>
+                <h5>aout 2, 2023</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate veniam pariatur beatae iusto repellat labore, autem vel at dicta dolores, reiciendis porro facere esse ea optio assumenda, saepe aliquid explicabo.<a href="{% url 'atik2' %}">li plis</a></p>
+            </div>
+
+            <div class="card">
+                <h2>50 Days Coding Tchalenj</h2>
+                <h5>avril 23, 2023</h5>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam quaerat accusamus, 
+                    ab sunt ratione obcaecati nobis, possimus ea amet officiis provident rerum dolorem officia
+                    tempore minima exercitationem dolor quo illo.<a href="{% url 'atik3' %}">li plis</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial;
+        padding: 20px;
+        background: #f1f1f1;
+    }
+
+    .header {
+        padding: 30px;
+        font-size: 40px;
+        text-align: center;
+        background: white;
+    }
+    .row{
+        width: 80%;
+        margin: auto;
+    }
+
+   
+    .header p{
+        font-size: x-large;
+        text-decoration: none;
+    }
+    .header a{
+       background-color: rgb(238, 190, 128);
+       padding: 10px 10px;
+       color: #f1f1f1;
+        text-decoration: none;
+    }
+
+
+
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+
+
+
+    @media screen and (max-width: 800px) {
+
+        .leftcolumn,
+        .rightcolumn {
+            width: 100%;
+            padding: 0;
+        }
+    }
+</style>

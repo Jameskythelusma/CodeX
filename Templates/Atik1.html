@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Atik 1</title>
+</head>
+
+<body>
+    <div class="header">
+        <h2>CodeX</h2>
+        <p><a href="{% url 'blog' %}">home</a></p>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <h2>Makonen URL ak Views</h2>
+                <h5>aout 7, 2023</h5>
+                <p>Anfen , nou pral kreye pwòp View nou pou n vizite pwòp paj nou nan sit n ap konstwi a. Pou sa nou pral entèraji ak sa ki rele View anndan fichye views.py anndan aplikasyon index nou an.
+
+                    Kreye premye View
+                    Ale nan fichye views.py la anndan aplikasyon w lan epi nou pral kreye premye View. Li prezante konsa:
+                    
+                    from django.shortcuts import render
+                    
+                    # Create your views here.
+                    Pa bliye chak Views dwe relye ak yon URL (Li ka relye ak plis ankò). Se gras ak URL sa, wap kapab rele View sa pou l fè tretman ou pwograme l pou l fè a.
+                    <br>
+                    View antanke yon fonksyon Python, pran yon paramèt ki toujou la, ki se request, se li ki jere tout nati rekèt itilizatè a, tankou si se yon rekèt GET, POST ...
+                    
+                    render se yon fonksyon ki pou pèmèt ou relye ak paj HTML ki pral afiche kontni bay itilizatè a. Men avan n ale nan render dirèk, map montre w yon fason ki senp avan pou w afiche yon paj. Pou sa wap jis enpòte yon fonksyon Django ki rele HttpResponse.
+                    
+                    from django.shortcuts import render
+                    from django.http import HttpResponse
+                    <br>
+                    # Create your views here.
+                    Kreye yon fonksyon (view) ki rele premyePaj.
+                    
+                    def premyePaj(request):
+                        return HttpResponse("Byenvini nan premye sit wèb mwen")
+                    Pa bliye ankò, chak View dwe relye ak URL. Pou w fè sa, ale nan fichye urls.py ki nan sou-dosye blog la, se la nou pral ajoute URL nou an.
+                    
+                    from django.contrib import admin
+                    from django.urls import path
+                    from index.views import premyePaj # Enpòte **View** a.
+                    <br>
+                    urlpatterns = [
+                        path('admin/', admin.site.urls),
+                        path('index', premyePaj),
+                    ]
+                    La mwen enpòte View a anndan aplikasyon index mwen an from index.views import premyePaj, epi aprè mwen ajoute yon nouvo path(): path('index', premyePaj),.
+                    
+                    Anndan l, nou ka wè prezans admin/, se te path sa ki te pèmèt nou vizite administrasyon an nan lyen sa http://127.0.0.1:8000/admin, nan ka pa n nan, path la se index, se li k ap vizite View nou an. Donk nan ka sa, ale nan lyen sa http://127.0.0.1:8000/index pou w wè rezilta.
+                    
+                    Byenvini nan premye sit wèb mwen
+                    Si w vle itilize rasin URL pwojè w kòm lyen pou w lanse yon View, wap jis mete path la vid "":
+                    <br>
+                    path('', premyePaj),
+                    Jere URL pou chak aplikasyon
+                    Li posib pou w jere URL chak aplikasyon nan dosye pa l. Nan ka sa n gen la, nou enpòte Views ki anndan index la pou w ka rele View premyePaj la, imajine si n te gen 10 aplikasyon, kote yo chak gen omwen 30 URL, sa tap fè 300 URL nan sèl grenn fichye sa.
+                    
+                    Nou ka remake path admin/ ki relye ak aplikasyon Django a diferan de jan nou fè a paske li pwente nan yon chemen admin.site.urls.
+                    <br>
+                    path('admin/', admin.site.urls)
+                    Anfèt tout URL aplikasyon admin yo pa jere la, sa n wè la se jis yon enklizyon, sa vle di apati de tout URL ki gen rasin admin/, URL yo ap jere pa URL ki nan admin.site.urls. Sa vle di tout URL ke mwen pral liste la yo, ap sible fichye urls ki nan aplikasyon admin nan.
+                    
+                    http://127.0.0.1:8000/admin
+                    http://127.0.0.1:8000/admin/blabla
+                    http://127.0.0.1:8000/admin/blo/12/23
+                    Menm jan tou nou ka kreye youn pou aplikasyon index nou an. Ann fè sa kounya, kreye yon nouvo fichye Python ki rele urls.py anndan aplikasyon index la epi nou ap joute ladan:
+                    
+                    blog/index/urls.py</div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial;
+        padding: 20px;
+        background: #f1f1f1;
+    }
+
+    
+    .header {
+        padding: 30px;
+        font-size: 40px;
+        text-align: center;
+        background: white;
+    }
+    .row{
+        width: 80%;
+        margin: auto;
+    }
+
+    .header p{
+        font-size: x-large;
+        text-decoration: none;
+    }
+    .header a{
+       background-color: rgb(238, 190, 128);
+       padding: 10px 10px;
+       color: #f1f1f1;
+        text-decoration: none;
+    }
+
+
+
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+
+
+
+    @media screen and (max-width: 800px) {
+
+    
+        .column {
+            width: 100%;
+            padding: 0;
+        }
+    }
+</style>
